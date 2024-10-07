@@ -11,13 +11,7 @@ dotenv.config();
 const app: Application = express();
 const port = process.env.PORT || 3000;
 
-app.use(
-  cors({
-    origin(_, callback) {
-      callback(null, true);
-    },
-  })
-);
+app.use(cors({ credentials: true, origin: true }));
 
 app.use(express.json());
 
