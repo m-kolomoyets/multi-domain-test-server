@@ -2,14 +2,14 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express, { Application, Request, Response } from "express";
 import { child, get, ref, set } from "firebase/database";
-import { VENDORS_CONFIG } from "./constants";
-import { firebaseConfig } from "./firebase";
+import { VENDORS_CONFIG } from "../constants";
+import { firebaseConfig } from "../firebase";
 
 //For env File
 dotenv.config();
 
 const app: Application = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -143,3 +143,5 @@ app
 app.listen(port, () => {
   console.log(`Server is Fire at http://localhost:${port}`);
 });
+
+module.exports = app;
