@@ -12,8 +12,10 @@ const app: Application = express();
 const port = process.env.PORT || 3000;
 
 app.use(
-  cors({
-    origin: "*",
+  cors((request, callback) => {
+    callback(null, {
+      origin: true,
+    }); //
   })
 );
 app.use(express.json());
