@@ -18,6 +18,15 @@ app.use(
     }); //
   })
 );
+app.options(
+  "*",
+  cors((request, callback) => {
+    callback(null, {
+      origin: true,
+    }); //
+  })
+);
+
 app.use(express.json());
 
 app.use((req, res, next) => {
