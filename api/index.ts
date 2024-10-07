@@ -12,16 +12,9 @@ const app: Application = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors({ credentials: true, origin: true }));
+app.options("*", cors({ credentials: true, origin: true }));
 
 app.use(express.json());
-
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-
-  next();
-});
-
-app.options("*", cors({ credentials: true, origin: true }));
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Welcome to Express & TypeScript Server");
