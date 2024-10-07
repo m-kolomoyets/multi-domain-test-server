@@ -21,6 +21,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.options("*", cors({ credentials: true, origin: true }));
+
 app.get("/", (req: Request, res: Response) => {
   res.send("Welcome to Express & TypeScript Server");
 });
