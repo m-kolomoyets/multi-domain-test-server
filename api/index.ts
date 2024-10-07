@@ -12,18 +12,16 @@ const app: Application = express();
 const port = process.env.PORT || 3000;
 
 app.use(
-  cors((request, callback) => {
-    callback(null, {
-      origin: true,
-    }); //
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000"],
   })
 );
 app.options(
   "*",
-  cors((request, callback) => {
-    callback(null, {
-      origin: true,
-    }); //
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000"],
   })
 );
 
